@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/revox_frontend/static/css/main.1c691e1c.css",
+    "main.js": "/revox_frontend/static/js/main.4386a6fd.js",
+    "index.html": "/revox_frontend/index.html",
+    "main.1c691e1c.css.map": "/revox_frontend/static/css/main.1c691e1c.css.map",
+    "main.4386a6fd.js.map": "/revox_frontend/static/js/main.4386a6fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c691e1c.css",
+    "static/js/main.4386a6fd.js"
+  ]
+}
