@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# Revox Frontend
+ポートフォリオアプリケーション「Revox」のフロントエンドです。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 概要
+このプロジェクトは、「Revox」のバックエンドAPIに対応するWebフロントエンドです。  
+バックエンドがメインですが、学習・動作確認目的でフロントエンドを構築しました。  
+AIアシスタントの支援を受けながら開発を行っています。
 
-## Available Scripts
+## 技術スタック
+### Core
+- React 18.2.0 - UIライブラリ
+- TypeScript 4.9.5 - 静的型付け言語
+- React Router DOM 7.8.0 - ルーティング
 
-In the project directory, you can run:
+### UI/UX
+- Material-UI 5.15.20 - UIコンポーネント
+- Emotion - CSS-in-JS
+- React Hot Toast - 通知システム
+- React Loading Skeleton - ローディング表示
 
-### `npm start`
+### 状態管理・データ取得
+- Zustand 5.0.7 - 軽量状態管理
+- TanStack Query 5.84.2 - サーバー状態管理
+- Axios 1.11.0 - HTTP通信
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### フォーム管理
+- React Hook Form 7.62.0 - フォームライブラリ
+- Yup 1.7.0 - バリデーション
+- Hookform Resolvers - フォーム統合
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ユーティリティ
+- Day.js 1.11.13 - 日付処理
+- JWT Decode 4.0.0 - トークン処理
 
-### `npm test`
+## 技術選定理由
+### TypeScriptとReact
+ReactとTypeScriptは、現在のフロントエンド開発におけるデファクトスタンダードであり、そのエコシステムは日々進化しています。  
+これらの技術を習得することは、単にこのプロジェクトを完成させるだけでなく、将来のキャリア形成に向けた最も効率的な学習投資だと判断しました。  
+堅牢なアプリケーションを構築する上で不可欠な静的型付け（TypeScript）と、再利用性とメンテナンス性を高めるコンポーネント指向（React）を学ぶことは、今後のエンジニアとしての成長に不可欠な要素です。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### その他のライブラリについて
+上記技術スタックに記載されている多くのライブラリについては、AIの提案により導入されたものであり、現時点では詳細な仕様や使い分けを理解できていません。    
+今後の学習過程でこれらの技術についても理解を深めていく予定です。
 
-### `npm run build`
+## 現在の開発状況
+### 学習フェーズ
+- バックエンド: オンラインスクールで学習（Java/Spring Boot）
+- フロントエンド: 独学でHTML/CSS学習中
+- 実装方法: AIアシスタントによる支援を活用
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 開発アプローチ
+- AIによる初期コード生成
+- エラー修正と動作確認
+- UI/UXの調整（配色・レイアウト）
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 現在の課題
+- HTML/CSS基礎知識の習得（学習中）
+- 使用している技術スタックの理解不足
+- React/TypeScriptの基本概念の理解不足
+- AIが生成したコードの仕組み理解不足
+- 自力でのコード記述能力不足
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 今後の予定
+### 短期目標
+- HTML/CSS基礎の習得
+- React基本概念の理解
+- TypeScript型定義の改善
+- コンポーネントのリファクタリング
 
-### `npm run eject`
+### 中期目標
+- パフォーマンス最適化
+- アクセシビリティ対応
+- レスポンシブデザイン改善
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 長期目標
+-  完全独力での機能開発
+-  モダンフロントエンド技術の習得
+-  ベストプラクティスに準拠したコード品質
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 注意事項
+### このプロジェクトは学習目的で開発されており、以下の点にご注意ください：
+- 学習段階: フロントエンド技術は独学で学習中であり、実装内容の完全理解には至っていません
+- AI支援開発: 多くのコードはAIアシスタントによって生成されており、使用している技術の詳細仕様については現時点で理解できていません
+- 技術スタック: package.jsonに記載されているライブラリの多くは、AIの提案により導入されたものです
+- コード品質: ベストプラクティスやアンチパターンの考慮が不十分な箇所があります
+- 実装方法: エラー解消と見た目の調整にとどまっており、アーキテクチャレベルの設計理解は今後の課題です
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## ライセンス
+このプロジェクトは学習・ポートフォリオ目的で作成されています。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## リンク
+- デプロイ版: https://rikuto-web.github.io/revox_frontend/
+- バックエンドリポジトリ: [リンクが利用可能になったら追加]
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
