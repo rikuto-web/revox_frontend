@@ -17,17 +17,31 @@ export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { loginMutation } = useAuth();
-  const { error, isLoading } = useAuthStore();
+  const { error, isLoading, isAuthenticated } = useAuthStore();
 
+  // ログイン後のリダイレクト先を取得（デフォルトはダッシュボード）
   const from = (location.state as any)?.from?.pathname || '/dashboard';
+
+  // 既にログイン済みの場合はリダイレクト
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate(from, { replace: true });
+    }
+  }, [isAuthenticated, navigate, from]);
 
   const handleGoogleLogin = (credential: string) => {
     loginMutation.mutate(credential, {
       onSuccess: () => {
+        // ログイン成功時は元のページまたはダッシュボードにリダイレクト
         navigate(from, { replace: true });
       },
     });
   };
+
+  // 既にログイン済みの場合は何も表示しない
+  if (isAuthenticated) {
+    return null;
+  }
 
   return (
     <Box

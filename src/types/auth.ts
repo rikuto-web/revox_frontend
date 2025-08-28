@@ -11,3 +11,7 @@ export interface LoginResponse {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface GuestLoginResponse {
+  token: string;
+}

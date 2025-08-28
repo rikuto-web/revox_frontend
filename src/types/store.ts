@@ -15,6 +15,7 @@ export interface AuthActions {
   updateUser: (user: User) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
+  initializeAuth: () => boolean; // 新しいメソッドを追加
 }
 
 export interface BikeState {

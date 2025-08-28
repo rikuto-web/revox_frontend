@@ -9,7 +9,7 @@ export const useAuthStore = create<AuthStore>()(
       user: null,
       token: null,
       isAuthenticated: false,
-      isLoading: false,
+      isLoading: true, // 初期値をtrueに変更
       error: null,
 
       login: (token: string, user: User) => {
@@ -47,6 +47,30 @@ export const useAuthStore = create<AuthStore>()(
 
       setError: (error: string | null) => {
         set({ error });
+      },
+
+      // 初期化用のメソッドを追加
+      initializeAuth: () => {
+        const savedToken = localStorage.getItem('auth_token');
+        const savedUser = localStorage.getItem('user_data');
+        
+        if (savedToken && savedUser) {
+          try {
+            const user = JSON.parse(savedUser);
+            set({
+              user,
+              token: savedToken,
+              isAuthenticated: true,
+              isLoading: false,
+            });
+            return true;
+          } catch (error) {
+            console.error('保存されたユーザーデータの解析に失敗しました:', error);
+          }
+        }
+        
+        set({ isLoading: false });
+        return false;
       },
     }),
     {

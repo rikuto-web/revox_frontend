@@ -1,5 +1,6 @@
 import { LoginRequest, LoginResponse } from '@/types/auth';
 import { User, UserUpdateRequest } from '@/types/user';
+import { GuestLoginResponse } from '@/types/auth';
 import { apiClient } from './api';
 
 /**
@@ -34,6 +35,14 @@ export class AuthService {
    */
   async deleteUser(userId: number): Promise<void> {
     return apiClient.patch<void>(`/users/${userId}/softDelete`);
+  }
+
+  /**
+   * ゲストとしてログインします。
+   * @returns ゲストユーザー用のJWTトークン
+   */
+  async loginAsGuest(): Promise<GuestLoginResponse> {
+    return apiClient.post<GuestLoginResponse>('/auth/guest');
   }
 }
 

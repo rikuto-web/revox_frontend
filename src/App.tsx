@@ -94,9 +94,11 @@ const App: React.FC = () => {
                 </ProtectedRoute>
               }
             />
+            {/* ルートパスのみダッシュボードにリダイレクト */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-            <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            {/* 404ページは削除またはエラーページに変更 */}
+            {/* 存在しないパスでもリダイレクトしない */}
           </Routes>
         </MainLayout>
       </Router>
