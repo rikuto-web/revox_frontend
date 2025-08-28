@@ -87,5 +87,5 @@ ReactとTypeScriptは、現在のフロントエンド開発におけるデフ�
 
 ## リンク
 - デプロイ版: [https://rikuto-web.github.io](https://rikuto-web.github.io/revox_frontend/)
-- バックエンドリポジトリ: [リンクが利用可能になったら追加]
+- バックエンドリポジトリ:[https://github.com/rikuto-web/revox](https://github.com/rikuto-web/revox)
 
