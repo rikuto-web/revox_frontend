@@ -86,6 +86,6 @@ ReactとTypeScriptは、現在のフロントエンド開発におけるデフ�
 - 実装方法: エラー解消と見た目の調整にとどまっており、アーキテクチャレベルの設計理解は今後の課題です
 
 ## リンク
-- デプロイ版: https://rikuto-web.github.io
+- デプロイ版: [https://rikuto-web.github.io](https://rikuto-web.github.io/revox_frontend/)
 - バックエンドリポジトリ: [リンクが利用可能になったら追加]
 
