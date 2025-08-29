@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/revox_frontend/static/css/main.1c691e1c.css",
-    "main.js": "/revox_frontend/static/js/main.8e774d91.js",
+    "main.js": "/revox_frontend/static/js/main.85b8f162.js",
     "index.html": "/revox_frontend/index.html",
     "main.1c691e1c.css.map": "/revox_frontend/static/css/main.1c691e1c.css.map",
-    "main.8e774d91.js.map": "/revox_frontend/static/js/main.8e774d91.js.map"
+    "main.85b8f162.js.map": "/revox_frontend/static/js/main.85b8f162.js.map"
   },
   "entrypoints": [
     "static/css/main.1c691e1c.css",
-    "static/js/main.8e774d91.js"
+    "static/js/main.85b8f162.js"
   ]
 }
