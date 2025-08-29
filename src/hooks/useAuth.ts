@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { authService } from '@/services/authService';
 import { useAuthStore } from '@/stores/authStore';
-import { User, UserUpdateRequest } from '@/types/user';
+import { UserUpdateRequest } from '@/types/user';
 
 export const useAuth = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const useAuth = () => {
   const loginMutation = useMutation({
     mutationFn: authService.loginWithGoogle,
     onMutate: () => {
-      setLoading(true);
+      setLoading(true); 
       setError(null);
     },
     onSuccess: (data) => {
@@ -27,28 +27,21 @@ export const useAuth = () => {
       toast.error(message);
     },
     onSettled: () => {
-      setLoading(false);
+      setLoading(false); 
     },
   });
 
   const guestLoginMutation = useMutation({
     mutationFn: authService.loginAsGuest,
     onMutate: () => {
-      setLoading(true);
+      setLoading(true); 
       setError(null);
     },
     onSuccess: (data) => {
-      const guestUser: User = {
-        id: 99999999,
-        nickname: 'ゲストユーザー',
-        displayEmail: 'guest@example.com',
-        uniqueUserId: 'guest-user',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      };
-      
-      login(data.token, guestUser);
-      toast.success('ゲストとしてログインしました');
+      login(data.accessToken, data.user);
+      localStorage.setItem('is_guest', 'true');
+      toast.success('ゲストログインしました');
+      navigate('/dashboard');
     },
     onError: (error: any) => {
       const message = error?.response?.data?.message || 'ゲストログインに失敗しました';
@@ -90,6 +83,7 @@ export const useAuth = () => {
 
   const handleLogout = () => {
     logout();
+    localStorage.removeItem('is_guest');
     queryClient.clear();
     toast.success('ログアウトしました');
     navigate('/');

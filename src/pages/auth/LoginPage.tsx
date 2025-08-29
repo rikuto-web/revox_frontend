@@ -7,6 +7,7 @@ import {
   Alert,
   Card,
   CardContent,
+  Button,
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { GoogleLoginButton } from '@/components/auth/GoogleLoginButton';
@@ -16,8 +17,8 @@ import { useAuthStore } from '@/stores/authStore';
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { loginMutation } = useAuth();
-  const { error, isLoading, isAuthenticated } = useAuthStore();
+  const { loginMutation, guestLoginMutation } = useAuth();
+  const { error, isLoading, isAuthenticated } = useAuthStore(); 
 
   // ログイン後のリダイレクト先を取得（デフォルトはダッシュボード）
   const from = (location.state as any)?.from?.pathname || '/dashboard';
@@ -36,6 +37,10 @@ export const LoginPage: React.FC = () => {
         navigate(from, { replace: true });
       },
     });
+  };
+
+  const handleGuestLogin = () => {
+    guestLoginMutation.mutate();
   };
 
   // 既にログイン済みの場合は何も表示しない
@@ -79,8 +84,21 @@ export const LoginPage: React.FC = () => {
             <Box sx={{ mb: 3 }}>
               <GoogleLoginButton
                 onLogin={handleGoogleLogin}
-                isLoading={isLoading}
+                isLoading={isLoading} 
               />
+            </Box>
+
+            <Box sx={{ mb: 3 }}>
+              <Button
+                fullWidth
+                variant="outlined"
+                size="large"
+                onClick={handleGuestLogin}
+                disabled={isLoading}
+                sx={{ py: 1.5 }}
+              >
+                ゲストとしてログイン
+              </Button>
             </Box>
 
             <Box sx={{ textAlign: 'center' }}>

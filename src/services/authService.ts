@@ -1,6 +1,5 @@
 import { LoginRequest, LoginResponse } from '@/types/auth';
 import { User, UserUpdateRequest } from '@/types/user';
-import { GuestLoginResponse } from '@/types/auth';
 import { apiClient } from './api';
 
 /**
@@ -10,7 +9,7 @@ import { apiClient } from './api';
 export class AuthService {
   /**
    * Google認証を使用してログインします。
-   * * @param idToken Googleから取得したIDトークン
+   * @param idToken Googleから取得したIDトークン
    * @returns ログイン成功時に返されるJWTトークンとユーザー情報
    */
   async loginWithGoogle(idToken: string): Promise<LoginResponse> {
@@ -19,8 +18,34 @@ export class AuthService {
   }
 
   /**
+   * ゲストユーザーとしてログインします。
+   * @returns ゲストログイン成功時に返されるJWTトークンとユーザー情報
+   */
+  async loginAsGuest(): Promise<LoginResponse> {
+    const response = await apiClient.post<{ token: string }>('/auth/guest');
+    
+    // ゲストユーザー情報を作成
+    const guestUser: User = {
+      id: 99999999,
+      uniqueUserId: 'guest-user',
+      nickname: 'ゲストユーザー',
+      displayEmail: 'guest@example.com',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    return {
+      accessToken: response.token,
+      tokenType: 'Bearer',
+      user: guestUser,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+  }
+
+  /**
    * 指定されたユーザー情報を更新します。
-   * * @param userId 更新対象のユーザーID
+   * @param userId 更新対象のユーザーID
    * @param updateData 更新するユーザー情報
    * @returns 更新されたユーザー情報
    */
@@ -30,19 +55,11 @@ export class AuthService {
 
   /**
    * 指定されたユーザーアカウントを論理削除します。
-   * * @param userId 削除対象のユーザーID
+   * @param userId 削除対象のユーザーID
    * @returns 処理が成功した場合は何も返さないPromise
    */
   async deleteUser(userId: number): Promise<void> {
     return apiClient.patch<void>(`/users/${userId}/softDelete`);
-  }
-
-  /**
-   * ゲストとしてログインします。
-   * @returns ゲストユーザー用のJWTトークン
-   */
-  async loginAsGuest(): Promise<GuestLoginResponse> {
-    return apiClient.post<GuestLoginResponse>('/auth/guest');
   }
 }
 
