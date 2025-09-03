@@ -1,14 +1,15 @@
 {
   "files": {
     "main.css": "/revox_frontend/static/css/main.1c691e1c.css",
-    "main.js": "/revox_frontend/static/js/main.1b346ce3.js",
+    "main.js": "/revox_frontend/static/js/main.bd4f443e.js",
     "static/media/bike-top.jpg": "/revox_frontend/static/media/bike-top.badc6552b8f71878f949.jpg",
+    "static/media/cbr1000r.jpg": "/revox_frontend/static/media/cbr1000r.e51531e1874cac49816a.jpg",
     "index.html": "/revox_frontend/index.html",
     "main.1c691e1c.css.map": "/revox_frontend/static/css/main.1c691e1c.css.map",
-    "main.1b346ce3.js.map": "/revox_frontend/static/js/main.1b346ce3.js.map"
+    "main.bd4f443e.js.map": "/revox_frontend/static/js/main.bd4f443e.js.map"
   },
   "entrypoints": [
     "static/css/main.1c691e1c.css",
-    "static/js/main.1b346ce3.js"
+    "static/js/main.bd4f443e.js"
   ]
 }
